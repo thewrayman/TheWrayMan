@@ -1,0 +1,287 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server">
+
+    </asp:ContentPlaceHolder>
+    <!--REGION - STYLESHEETS-->
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/fancybox/source/helpers/jquery.fancybox-thumbsc924.css?v=1.0.6" />
+	<link rel="stylesheet" type="text/css" href="/fancybox/source/helpers/jquery.fancybox-buttons2c70.css?v=1.0.3" />
+	<link rel="stylesheet" type="text/css" href="/fancybox/source/jquery.fancyboxf066.css?v=2.1.0" media="screen" />
+
+    <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="Styleimages/favicon.ico"/>
+	<link rel="apple-touch-icon" href="Styleimages/apple-touch-icon.png"/>
+	<link rel="apple-touch-icon" sizes="72x72" href="Styleimages/apple-touch-icon-72x72.png"/>
+	<link rel="apple-touch-icon" sizes="114x114" href="Styleimages/apple-touch-icon-114x114.png"/>
+
+        <!-- JS -->
+	<!-- Add jQuery library -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="/javascripts/tabs.js"></script>	
+    
+    <!-- Plugins -->
+    <script type="text/javascript" src="/javascripts/mosaic.1.0.1.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/javascripts/socialite.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.validate.min.js"></script>
+    
+
+        <!-- Add mousewheel plugin (this is optional) -->
+    <script type="text/javascript" src="/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+    <!-- Add fancyBox -->
+    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <!-- Optionally add helpers - button, thumbnail and/or media -->
+    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+    <link rel="stylesheet" href="/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+    <script type="text/javascript" src="/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    
+	<script type="text/javascript" src="/Scripts/modernizr-2.6.2.js"></script>
+    <script type="text/javascript" src="/Scripts/respond.min.js"></script>
+    
+    <script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+    <div class="band header">
+
+
+       <header class="main">
+                       
+            <div class="logo-header" style="display:block;">
+                <asp:Label runat="server" ID="MasterTitle" CssClass="customnav"></asp:Label>
+            </div><!-- header -->
+        <div class="navigation wrapper">
+            <div id="sticky_navigation">
+                <div class="logo-alt"><a href="Default.aspx"><img src="../StyleImages/logo_header_alt1.png" /></a></div>
+                <div class="title-alt"><asp:Label runat="server" ID="HeaderTitle"></asp:Label></div>
+                <nav class="primary">
+                    <a class="toggleMenu" href="#">Menu</a>
+                    <div class="menu-primary-navigation-container">
+                        <ul id="menu-primary-navigation" class="nav">
+                            <li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-71"><a href="../Default.aspx">Home</a></li>
+                            <li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"><a href="../Designs.aspx">Designs</a></li>
+                            <li id="menu-item-197" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-197"><a href="../Photography.aspx">Photography</a></li>
+                            <li id="menu-item-703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-703"><a href="../Tutorials.aspx">Tips &#038; Tutorials</a></li>
+                            <li id="menu-item-705" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-705"><a href="../Projects/Projects.aspx">Projects</a></li>
+                            <li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70"><a href="../Contact.aspx">Contact</a></li>
+                        </ul></div>
+                    </nav> 
+
+            </div>
+                <script type="text/javascript">
+					<!--//--><![CDATA[//><!--
+					
+						//Responsive Navigation
+
+						var ww = document.body.clientWidth;
+						
+						$(document).ready(function() {
+							$(".nav li a").each(function() {
+								if ($(this).next().length > 0) {
+									$(this).addClass("parent");
+								};
+							})
+							
+							$(".toggleMenu").click(function(e) {
+								e.preventDefault();
+								$(this).toggleClass("active");
+								$(".nav").toggle();
+							});
+							adjustMenu();
+						})
+						
+						$(window).bind('resize orientationchange', function() {
+							ww = document.body.clientWidth;
+							adjustMenu();
+						});
+						
+						var adjustMenu = function() {
+							if (ww < 1045) {
+								$(".toggleMenu").css("display", "inline-block");
+								if (!$(".toggleMenu").hasClass("active")) {
+									$(".nav").hide();
+								} else {
+									$(".nav").show();
+								}
+								$(".nav li").unbind('mouseenter mouseleave');
+								$(".nav li a.parent").unbind('click').bind('click', function(e) {
+									// must be attached to anchor element to prevent bubbling
+									e.preventDefault();
+									$(this).parent("li").toggleClass("hover");
+								});
+							} 
+							else if (ww >= 890) {
+								$(".toggleMenu").css("display", "none");
+								$(".nav").show();
+								$(".nav li").removeClass("hover");
+								$(".nav li a").unbind('click');
+								$(".nav li").unbind('mouseenter mouseleave').bind('mouseenter mouseleave', function() {
+									// must be attached to li so that mouseleave is not triggered when hover over submenu
+									$(this).toggleClass('hover');
+								});
+							}
+						}
+						
+						//Sticky Navigation
+
+						$(function() {
+
+							// grab the initial top offset of the navigation 
+							var sticky_navigation_offset_top = $('#sticky_navigation').offset().top;
+							
+							// our function that decides weather the navigation bar should have "fixed" css position or not.
+							var sticky_navigation = function(){
+								var scroll_top = $(window).scrollTop(); // our current vertical position from the top
+								
+								// if we've scrolled more than the navigation, change its position to fixed to stick to top, otherwise change it back to relative
+								if (scroll_top > sticky_navigation_offset_top) { 
+									$('#sticky_navigation').css({ 'position': 'fixed', 'top':0, 'left':0 , 'z-index': 999998, });
+									$('.logo-header').css({ 'display': 'none', });
+									$('.logo-alt').css({ 'display': 'inline-block', });
+									$('.title-alt').css({ 'display': 'inline-block', });
+								} else {
+									$('#sticky_navigation').css({ 'position': 'relative', 'z-index': 11, }); 
+									$('.logo-header').css({ 'display': 'block', });
+									$('.logo-alt').css({ 'display': 'none', });
+									$('.title-alt').css({ 'display': 'none', });
+								}   
+							};
+							
+							// run our function on load
+							sticky_navigation();
+							
+							// and run it again every time you scroll
+							$(window).scroll(function() {
+								 sticky_navigation();
+							});
+							
+							// NOT required:
+							// for this demo disable all links that point to "#"
+							$('a[href="#"]').click(function(event){ 
+								event.preventDefault(); 
+							});
+							
+						});
+				 	//--><!]]>
+                </script>
+        </div><%--navwrapper--%>
+        </header>
+    </div><%--bandheader--%>
+
+    <form id="form1" runat="server">
+
+
+    <div>
+        <div class="band">
+            <div class="container">
+                <div class="band">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="band footer">
+    
+    	<footer class="container">
+            <div>
+                <asp:ContentPlaceHolder ID="FooterContent" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+            
+        
+		</footer><!-- footer -->
+    
+    </div><!--end band-->
+
+
+
+
+    
+    <div class="band bottom">
+    
+    	<footer class="container">
+
+            
+            <div class="eight columns first-credit">
+                <p>© 2016 Emmet Wray. Site By <a href="http://www.thewrayman.com">Emmet Wray</a></p>
+            </div><!-- ten -->
+            
+            <div class="eight columns last-credit">
+                <p><a onclick="jQuery('html, body').animate( { scrollTop: 0 }, 'slow' );"  href="javascript:void(0);">Go Back to Top</a></p>
+            </div><!-- six -->
+        
+		</footer><!-- footer -->
+    
+    </div><!--end band-->
+    </form>
+</body>
+</html>
